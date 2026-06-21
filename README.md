@@ -109,6 +109,68 @@ sign and are within ~2× magnitude.*
 
 ## Architecture
 
+The four diagrams below tell the full story in sequence: live feeds are captured by the
+ingestion layer → JSONL session files → crypto research pipeline → verdicts; weather
+pipeline runs in parallel on its own data path.
+
+### Data ingestion (live capture)
+
+```mermaid
+flowchart LR
+    A["polymarket_ws.py\nWebSocketApp\nreconnect + ping loop\nbatch subscribe\nwss://ws-subscriptions-clob.polymarket.com"] -->|"best_bid_ask / last_trade\nbook_snapshot / new_market\nmarket_resolved"| B
+
+    C["binance_feed.py\nREST poll every 5s\nvolatility + momentum\nthread-safe cache\napi.binance.com/api/v3"] -->|"price / volatility / momentum"| B
+
+    B["data_bus.py\nmerge WS + Binance\nunified snapshot\ndaemon threads + locks\n30s Binance stale-guard"] -->|"snapshot dict"| D
+    B --> E
+
+    E["market_registry.py\nGamma API poll\nPTB fetch\nsession lifecycle\ngamma-api.polymarket.com"] -->|"session_opened\nsession_closed"| D
+
+    D["recorder.py\nbuffer per session\n1s throttle\nsingle-instance lock\nflush on session_closed"] -->|"JSONL append\nfsync"| F[("logs/market_data/\n{symbol}_{date}.jsonl")]
+```
+
+All five files communicate only through callbacks and snapshot dicts — no shared global
+state except the `DataBus` instance, which is the deliberate integration point. All
+endpoints are public and keyless. The resulting JSONL files are the input to the crypto
+discovery pipeline below.
+
+**JSONL log schema** (compact — full annotated schema: `data_ingestion/README.md`):
+
+```python
+# Session-level record (appended at session close)
+{
+    "slug":               "btc-updown-5m-1773100500",  # primary join key
+    "symbol":             "BTC",
+    "interval":           5,                            # minutes (5 or 15)
+    "recorded_at":        1773100536.5,                # Unix ts (session open)
+    "ptb":                83400.0,                     # Binance open price ("price to beat")
+    "open_binance_price": 83420.5,
+    "open_volatility":    0.082,                       # % std dev, last 20 1-min closes
+    "open_momentum_5m":  -0.031,                       # % 5-min Binance change at open
+    "close_price":        83450.0,
+    "close_volatility":   0.091,
+    "actual_outcome":     "UP",                        # UP / DOWN — recomputed at read time
+    "snapshots":          [...],                        # per-tick list (see below)
+    "market_info":        {"yes_token_id": ..., "no_token_id": ..., "market_condition_id": ..., "end_date": ...}
+}
+
+# Per-tick snapshots[] entry (1-second throttle)
+{
+    "t":             142,      # seconds remaining until expiry
+    "mid":           0.615,   # YES token mid price (0–1)
+    "spread":        0.010,
+    "bid_volume":    340.5,   # USDC liquidity, top-5 book levels
+    "ask_volume":    120.2,
+    "imbalance":     0.478,   # (bid−ask)/(bid+ask)
+    "last_trade":    0.610,   # most recent trade price (null at session open)
+    "binance_price": 83420.5,
+    "price_diff_pct": 0.024,  # % drift from ptb
+    "momentum_3m":   0.014,   # % 3-min Binance change
+    "momentum_5m":  -0.031,   # % 5-min Binance change
+    "timestamp":     1773100536.5,
+}
+```
+
 ### Crypto discovery engine
 
 ```mermaid
