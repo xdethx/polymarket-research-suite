@@ -1,0 +1,71 @@
+{
+  "title": "Highest temperature in NYC on June 10?",
+  "slug": "highest-temperature-in-nyc-on-june-10-2026",
+  "endDate": "2026-06-10T16:00:00Z",
+  "description": "Resolution source: Wunderground, LaGuardia Airport Station (KLGA). Measures temperatures in whole degrees Fahrenheit.",
+  "markets": [
+    {
+      "question": "Will the highest temperature in NYC be 74°F or below?",
+      "groupItemTitle": "74°F or below",
+      "clobTokenIds": ["n11", "n12"],
+      "outcomePrices": ["0.01", "0.99"],
+      "bestBid": "0.009",
+      "bestAsk": "0.011",
+      "volume": "100.00"
+    },
+    {
+      "question": "Will the highest temperature in NYC be 76-77°F?",
+      "groupItemTitle": "76-77°F",
+      "clobTokenIds": ["n21", "n22"],
+      "outcomePrices": ["0.05", "0.95"],
+      "bestBid": "0.048",
+      "bestAsk": "0.052",
+      "volume": "200.00"
+    },
+    {
+      "question": "Will the highest temperature in NYC be 78-79°F?",
+      "groupItemTitle": "78-79°F",
+      "clobTokenIds": ["n31", "n32"],
+      "outcomePrices": ["0.15", "0.85"],
+      "bestBid": "0.148",
+      "bestAsk": "0.152",
+      "volume": "400.00"
+    },
+    {
+      "question": "Will the highest temperature in NYC be 80-81°F?",
+      "groupItemTitle": "80-81°F",
+      "clobTokenIds": ["n41", "n42"],
+      "outcomePrices": ["0.35", "0.65"],
+      "bestBid": "0.348",
+      "bestAsk": "0.352",
+      "volume": "700.00"
+    },
+    {
+      "question": "Will the highest temperature in NYC be 82-83°F?",
+      "groupItemTitle": "82-83°F",
+      "clobTokenIds": ["n51", "n52"],
+      "outcomePrices": ["0.25", "0.75"],
+      "bestBid": "0.248",
+      "bestAsk": "0.252",
+      "volume": "500.00"
+    },
+    {
+      "question": "Will the highest temperature in NYC be 84-85°F?",
+      "groupItemTitle": "84-85°F",
+      "clobTokenIds": ["n61", "n62"],
+      "outcomePrices": ["0.10", "0.90"],
+      "bestBid": "0.098",
+      "bestAsk": "0.102",
+      "volume": "200.00"
+    },
+    {
+      "question": "Will the highest temperature in NYC be 86°F or higher?",
+      "groupItemTitle": "86°F or higher",
+      "clobTokenIds": ["n71", "n72"],
+      "outcomePrices": ["0.05", "0.95"],
+      "bestBid": "0.048",
+      "bestAsk": "0.052",
+      "volume": "100.00"
+    }
+  ]
+}

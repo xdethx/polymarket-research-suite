@@ -1,0 +1,62 @@
+{
+  "title": "Highest temperature in Hong Kong on June 10?",
+  "slug": "highest-temperature-in-hong-kong-on-june-10-2026",
+  "endDate": "2026-06-10T04:00:00Z",
+  "description": "Resolution source: Hong Kong Observatory (HKO). Measures daily high temperature to one decimal place in degrees Celsius, with the recorded value floored to the nearest integer degree for market resolution.",
+  "markets": [
+    {
+      "question": "Will the highest temperature in Hong Kong be 28°C or below?",
+      "groupItemTitle": "28°C or below",
+      "clobTokenIds": ["h11", "h12"],
+      "outcomePrices": ["0.01", "0.99"],
+      "bestBid": "0.009",
+      "bestAsk": "0.011",
+      "volume": "100.00"
+    },
+    {
+      "question": "Will the highest temperature in Hong Kong be 29°C?",
+      "groupItemTitle": "29°C",
+      "clobTokenIds": ["h21", "h22"],
+      "outcomePrices": ["0.05", "0.95"],
+      "bestBid": "0.048",
+      "bestAsk": "0.052",
+      "volume": "200.00"
+    },
+    {
+      "question": "Will the highest temperature in Hong Kong be 30°C?",
+      "groupItemTitle": "30°C",
+      "clobTokenIds": ["h31", "h32"],
+      "outcomePrices": ["0.20", "0.80"],
+      "bestBid": "0.198",
+      "bestAsk": "0.202",
+      "volume": "500.00"
+    },
+    {
+      "question": "Will the highest temperature in Hong Kong be 31°C?",
+      "groupItemTitle": "31°C",
+      "clobTokenIds": ["h41", "h42"],
+      "outcomePrices": ["0.35", "0.65"],
+      "bestBid": "0.348",
+      "bestAsk": "0.352",
+      "volume": "700.00"
+    },
+    {
+      "question": "Will the highest temperature in Hong Kong be 32°C?",
+      "groupItemTitle": "32°C",
+      "clobTokenIds": ["h51", "h52"],
+      "outcomePrices": ["0.25", "0.75"],
+      "bestBid": "0.248",
+      "bestAsk": "0.252",
+      "volume": "500.00"
+    },
+    {
+      "question": "Will the highest temperature in Hong Kong be 33°C or higher?",
+      "groupItemTitle": "33°C or higher",
+      "clobTokenIds": ["h61", "h62"],
+      "outcomePrices": ["0.08", "0.92"],
+      "bestBid": "0.078",
+      "bestAsk": "0.082",
+      "volume": "200.00"
+    }
+  ]
+}

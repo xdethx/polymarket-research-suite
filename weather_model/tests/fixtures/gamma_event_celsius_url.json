@@ -1,0 +1,71 @@
+{
+  "title": "Highest temperature in Madrid on June 10?",
+  "slug": "highest-temperature-in-madrid-on-june-10-2026",
+  "endDate": "2026-06-10T12:00:00Z",
+  "description": "This market resolves based on the highest temperature recorded at the station listed at https://www.wunderground.com/weather/es/madrid/LEMD. Measures temperatures in whole degrees Celsius.",
+  "markets": [
+    {
+      "question": "Will the highest temperature in Madrid be 27°C or below?",
+      "groupItemTitle": "27°C or below",
+      "clobTokenIds": ["aaa111", "aaa222"],
+      "outcomePrices": ["0.01", "0.99"],
+      "bestBid": "0.009",
+      "bestAsk": "0.011",
+      "volume": "150.00"
+    },
+    {
+      "question": "Will the highest temperature in Madrid be 28°C?",
+      "groupItemTitle": "28°C",
+      "clobTokenIds": ["bbb111", "bbb222"],
+      "outcomePrices": ["0.05", "0.95"],
+      "bestBid": "0.048",
+      "bestAsk": "0.052",
+      "volume": "200.00"
+    },
+    {
+      "question": "Will the highest temperature in Madrid be 29°C?",
+      "groupItemTitle": "29°C",
+      "clobTokenIds": ["ccc111", "ccc222"],
+      "outcomePrices": ["0.15", "0.85"],
+      "bestBid": "0.148",
+      "bestAsk": "0.152",
+      "volume": "450.00"
+    },
+    {
+      "question": "Will the highest temperature in Madrid be 30°C?",
+      "groupItemTitle": "30°C",
+      "clobTokenIds": ["ddd111", "ddd222"],
+      "outcomePrices": ["0.35", "0.65"],
+      "bestBid": "0.348",
+      "bestAsk": "0.352",
+      "volume": "800.00"
+    },
+    {
+      "question": "Will the highest temperature in Madrid be 31°C?",
+      "groupItemTitle": "31°C",
+      "clobTokenIds": ["eee111", "eee222"],
+      "outcomePrices": ["0.25", "0.75"],
+      "bestBid": "0.248",
+      "bestAsk": "0.252",
+      "volume": "600.00"
+    },
+    {
+      "question": "Will the highest temperature in Madrid be 32°C?",
+      "groupItemTitle": "32°C",
+      "clobTokenIds": ["fff111", "fff222"],
+      "outcomePrices": ["0.10", "0.90"],
+      "bestBid": "0.098",
+      "bestAsk": "0.102",
+      "volume": "250.00"
+    },
+    {
+      "question": "Will the highest temperature in Madrid be 33°C or higher?",
+      "groupItemTitle": "33°C or higher",
+      "clobTokenIds": ["ggg111", "ggg222"],
+      "outcomePrices": ["0.05", "0.95"],
+      "bestBid": "0.048",
+      "bestAsk": "0.052",
+      "volume": "100.00"
+    }
+  ]
+}
